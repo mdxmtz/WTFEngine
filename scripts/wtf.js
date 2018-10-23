@@ -18,9 +18,11 @@ var WTF = (function() {
     var DOCS_PATH = "https://spreadsheets.google.com/feeds/list/{key}/od6/public/values?alt=json";
 
 
-    var templates;
-    var responses;
-    var headings;
+    //var templates;
+    //var responses;
+    //var headings;
+    var fact;
+    var consejos;
     var corpus;
     var regex;
     var dom;
@@ -37,13 +39,21 @@ var WTF = (function() {
         
         // Copy out templates then remove from corpus
 
-        templates = corpus.template;
-        responses = corpus.response;
-        headings = corpus.heading;
+        //templates = corpus.template;
+        //responses = corpus.response;
+        //headings = corpus.heading;
+        fact = corpus.fact;
+        consejos = corpus.consejos;
+        //console.log(corpus);
+        console.log(consejos);
+        console.log(fact)
 
-        delete corpus.template;
-        delete corpus.response;
-        delete corpus.heading;
+        //delete corpus.template;
+        //delete corpus.response;
+        //delete corpus.heading;
+
+        delete corpus.fact;
+        delete corpus.consejos;
 
         // Enable UI and generate first idea
 
@@ -234,12 +244,12 @@ var WTF = (function() {
         }
 
         // Update output
-
-        dom.generate.text( randomItem( responses ) );
+//responses
+        dom.generate.text( randomItem( consejos ) );
         dom.output.html(
             '<dl>' +
-                '<dt>' + randomItem( headings ) + '</dt>' +
-                '<dd>' + idea + '</dd>' +
+                '<dt>' + randomItem( fact ) + '</dt>' +
+               // '<dd>' + idea + '</dd>' +
             '</dl>'
         );
 
